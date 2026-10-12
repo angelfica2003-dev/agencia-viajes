@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return regex.test(password);
     }
 
-    // Validación en tiempo real al escribir en la contraseña
     passwordInput.addEventListener("input", () => {
         const valor = passwordInput.value;
         if (!esContraseñaSegura(valor)) {
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Validación al enviar el formulario
     loginForm.addEventListener("submit", (event) => {
         if (!loginForm.checkValidity()) {
             event.preventDefault();
