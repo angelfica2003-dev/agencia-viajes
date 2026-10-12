@@ -1,8 +1,7 @@
 <?php
 session_start();
-include 'conexion.php'; // Tu archivo de conexión a Oracle
+include 'conexion.php';
 
-// Inicializar el carrito en la sesión si no existe
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
@@ -19,14 +18,11 @@ try {
     $errorCatalogo = 'No se pudo cargar el catálogo. Intenta nuevamente más tarde.';
 }
 
-// Vaciar el carrito
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['vaciar'])) {
     $_SESSION['carrito'] = [];
     header('Location: index.php');
     exit;
 }
-
-// Lógica para agregar al carrito
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregar'])) {
     $tituloSolicitado = $_POST['titulo'] ?? '';
     $libroSolicitado = null;
@@ -74,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregar'])) {
     <link href="estilos.css" rel="stylesheet">
 </head> 
 <body class="bg-light"> 
-    <!-- Navbar Mejorado -->
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#inicio">📚 Librería</a>
@@ -101,7 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregar'])) {
     </nav>
 
     <main class="container my-5">
-        <!-- Sección Hero con mejor diseño -->
         <section id="inicio" class="hero-libreria p-4 p-md-5 mb-5 rounded-4 shadow-sm border">
             <div class="py-3">
                 <h1 class="display-5 fw-bold text-dark">Bienvenido a nuestra Librería en Línea</h1>
@@ -110,7 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregar'])) {
         </section>
 
         <div class="row">
-            <!-- Catálogo de Libros (Columna Izquierda) -->
             <div class="col-lg-8 mb-4">
                 <h3 id="novedades" class="mb-4 fw-bold">Libros Disponibles</h3>
                 <?php if ($mensajeCarrito !== ''): ?>
@@ -152,8 +146,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregar'])) {
                 </div>
                 <?php endif; ?>
             </div>
-
-            <!-- Resumen del Carrito (Columna Derecha) -->
             <div class="col-lg-4">
                 <div class="card shadow-sm border-0 p-3">
                     <h3 class="mb-3 fw-bold h4">🛒 Tu Carrito</h3>
