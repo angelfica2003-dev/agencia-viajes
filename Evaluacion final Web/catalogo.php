@@ -1,23 +1,20 @@
 <?php
 session_start();
 
-// Control de acceso: Si no ha iniciado sesión, redirigir al login
+
 if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit();
 }
 
-// Inicializar el carrito en la sesión si no existe
 if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
 
-// Simular agregar un libro al carrito mediante POST
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregar'])) {
     $libro = $_POST['libro'];
     $precio = $_POST['precio'];
     
-    // Si ya está en el carrito, aumentar cantidad; si no, agregarlo
     if (isset($_SESSION['carrito'][$libro])) {
         $_SESSION['carrito'][$libro]['cantidad']++;
     } else {
@@ -28,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregar'])) {
     }
 }
 
-// Vaciar o cerrar sesión
 if (isset($_GET['accion']) && $_GET['accion'] == 'logout') {
     session_destroy();
     header("Location: login.php");
@@ -50,7 +46,6 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'logout') {
     </div>
 
     <div class="row">
-        <!-- Listado de Libros Disponibles -->
         <div class="col-md-8">
             <h3>Catálogo de Libros</h3>
             <div class="list-group">
@@ -74,8 +69,6 @@ if (isset($_GET['accion']) && $_GET['accion'] == 'logout') {
                 </form>
             </div>
         </div>
-
-        <!-- Resumen del Carrito en Sesión -->
         <div class="col-md-4">
             <h3>Tu Carrito</h3>
             <ul class="list-group mb-3">
