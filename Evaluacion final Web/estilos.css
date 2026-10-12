@@ -1,0 +1,95 @@
+:root {
+    --libreria-ink: #263746;
+    --libreria-accent: #315f78;
+    --libreria-surface: #ffffff;
+    --libreria-page: #f4f7f9;
+}
+
+body.bg-light,
+body.pagina-formulario {
+    background-color: var(--libreria-page) !important;
+    color: var(--libreria-ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.navbar.bg-dark {
+    background-color: #263746 !important;
+}
+
+.navbar-brand {
+    letter-spacing: 0.02em;
+}
+
+.navbar .nav-link {
+    border-radius: 0.4rem;
+    transition: background-color 0.15s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+    background-color: rgb(255 255 255 / 9%);
+}
+
+.hero-libreria {
+    border-color: #e4ebef !important;
+    background: linear-gradient(115deg, #fff 55%, #edf4f7);
+}
+
+.card {
+    border-radius: 0.8rem;
+}
+
+.libro-card {
+    transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.libro-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.6rem 1.2rem rgb(38 55 70 / 9%) !important;
+}
+
+.text-success {
+    color: #34765b !important;
+}
+
+.btn-primary {
+    background-color: var(--libreria-accent);
+    border-color: var(--libreria-accent);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #264c61;
+    border-color: #264c61;
+}
+
+.formulario-contenedor {
+    max-width: 560px;
+}
+
+.formulario-contenedor > h1,
+.formulario-contenedor > h2 {
+    color: var(--libreria-ink);
+}
+
+.formulario-tarjeta,
+.gestion-tarjeta {
+    background-color: var(--libreria-surface);
+    border: 1px solid #e4ebef;
+    border-radius: 0.85rem;
+    box-shadow: 0 0.5rem 1.5rem rgb(38 55 70 / 6%);
+}
+
+.form-control {
+    border-color: #d8e1e7;
+}
+
+.form-control:focus {
+    border-color: #87aabd;
+    box-shadow: 0 0 0 0.2rem rgb(49 95 120 / 14%);
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding-top: 0.5rem;
+    }
+}
